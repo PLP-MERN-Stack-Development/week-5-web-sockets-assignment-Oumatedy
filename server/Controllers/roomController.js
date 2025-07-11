@@ -1,11 +1,16 @@
-const Room = require('../Models/roomModel');
+const Room = require('../models/Room');
 
-exports.getRoom = async (req, res) => {
-    const rooms = await Room.find();
-    res.status(200).json({ rooms });
+exports.getRooms = async (req, res) => {
+    try {
+        const rooms = await Room.find();
+        res.status(200).json({ rooms });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: error.message });
+    }
 };
 
-exports.createNewRoom = async (req, res) => {
+exports.createRoom = async (req, res) => {
     const { name } = req.body;
 
     try {

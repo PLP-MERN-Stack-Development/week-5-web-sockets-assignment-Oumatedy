@@ -1,5 +1,5 @@
-const Message = require('../Models/message');
-const User = require('../Models/User');
+const Message = require('../models/Message');
+const User = require('../models/User');
 
 module.exports = (io) => {
     io.on('connection', (socket) => {

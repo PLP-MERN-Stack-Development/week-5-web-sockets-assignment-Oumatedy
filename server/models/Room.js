@@ -6,6 +6,10 @@ const roomSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    participants: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }],
 }, { timestamps: true });
 
 module.exports = mongoose.model('Room', roomSchema);
